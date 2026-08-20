@@ -52,7 +52,11 @@ const projects = [
     description: 'RESTful API backend for a social media platform with real-time features.',
     image: "images/social media.jpg",
     tags: ['Express.js', 'MySQL', 'Redis', 'JWT'],
-    details: 'Engineered a scalable RESTful API for a social media platform featuring user authentication (JWT), posts, comments, likes, friend requests, newsfeed generation, and Redis-cached real-time notifications.'
+    details: 'Engineered a scalable RESTful API for a social media platform featuring user authentication (JWT), posts, comments, likes, friend requests, newsfeed generation, and Redis-cached real-time notifications.',
+    otherProjects: [
+      { name: 'Leonce', url: 'https://leonce.vercel.app' },
+      { name: 'Kriss Kruzz', url: 'https://krisskruzz.vercel.app' }
+    ]
   }
 ];
 
@@ -74,6 +78,18 @@ function renderProjects() {
   grid.querySelectorAll('.project-card').forEach(card => {
     card.addEventListener('click', () => openModal(Number(card.dataset.id)));
   });
+  const otherProjects = document.getElementById('other-projects');
+  const socialMediaProject = projects.find(project => project.title === 'Social Media API');
+  otherProjects.innerHTML = `
+    <details class="modal__other-projects">
+      <summary>Other Projects</summary>
+      <div class="modal__project-links">
+        ${socialMediaProject.otherProjects.map(project => `
+          <a href="${project.url}" target="_blank" rel="noopener noreferrer">${project.name}</a>
+        `).join('')}
+      </div>
+    </details>
+  `;
 }
 
 function openModal(id) {

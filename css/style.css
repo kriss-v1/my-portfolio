@@ -489,6 +489,10 @@ img {
   font-weight: 500;
 }
 
+.other-projects {
+  margin-top: 28px;
+}
+
 /* ============= MODAL ============= */
 .modal {
   display: none;
@@ -577,6 +581,32 @@ img {
 .modal__body p {
   color: var(--text-muted);
   line-height: 1.7;
+}
+
+.modal__other-projects summary {
+  color: var(--primary);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.modal__project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+}
+
+.modal__project-links a {
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  transition: all var(--transition);
+}
+
+.modal__project-links a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 /* ============= SKILLS ============= */
